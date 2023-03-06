@@ -21,12 +21,12 @@ while run:
     snake.draw(pg, window)
     pg.display.flip()
 
-    keys = pygame.key.get_pressed()
-    if keys[pygame.K_LEFT]:
-      snake.steer(Direction.LEFT)
-    elif keys[pygame.K_RIGHT]:
-      snake.steer(Direction.RIGHT)
-    elif keys[pygame.K_UP]:
-      snake.steer(Direction.UP)
-    elif keys[pygame.K_DOWN]:
-      snake.steer(Direction.DOWN)
+    keys = pg.key.get_pressed()
+    if keys[pg.K_LEFT]:
+      snake.steer(Directions.LEFT)
+    elif keys[pg.K_RIGHT]:
+      snake.steer(Directions.RIGHT)
+    elif keys[pg.K_UP]:
+      snake.steer(Directions.UP)
+    elif keys[pg.K_DOWN]:
+      snake.steer(Directions.DOWN)
