@@ -3,11 +3,12 @@ from snake import *
 from food import Food
 
 pg.init()
-bounds = (600,600)
+bounds = (1200,600)
 window = pg.display.set_mode(bounds)
 pg.display.set_caption("Snake")
 block_size = 20
-snake = Snake(block_size, bounds)
+snake = Snake(block_size, bounds, [(20,300)], (0,255,0), Directions.RIGHT)
+snake2 = Snake(block_size, bounds, [(1160,300)], (0,0,255), Directions.LEFT)
 food = Food(block_size,bounds)
 font = pg.font.SysFont('comicsans',60, True)
 
@@ -20,9 +21,13 @@ while run:
             run = False
 
     snake.move()
+    snake2.move()
+    print(snake.direction)
     snake.check_for_food(food)
+    snake2.check_for_food(food)
     window.fill((0,0,0))
     snake.draw(pg, window)
+    snake2.draw(pg, window)
     food.draw(pg, window)
     pg.display.flip()
 
@@ -35,11 +40,22 @@ while run:
       snake.steer(Directions.UP)
     elif keys[pg.K_DOWN]:
       snake.steer(Directions.DOWN)
+    
+    keys2 = pg.key.get_pressed()
+    if keys2[pg.K_a]:
+      snake2.steer(Directions.LEFT)
+    elif keys2[pg.K_d]:
+      snake2.steer(Directions.RIGHT)
+    elif keys2[pg.K_w]:
+      snake2.steer(Directions.UP)
+    elif keys2[pg.K_s]:
+      snake2.steer(Directions.DOWN)
 
     if snake.check_bounds() == True or snake.check_tail_collision() == True:
         text = font.render('Game Over', True, (255,255,255))
         window.blit(text, (150,150))
         pg.display.update()
         pg.time.delay(1000)
-        snake.respawn()
+        snake.respawn((20,300), Directions.RIGHT)
+        snake2.respawn((1180,300), Directions.LEFT)
         food.respawn()

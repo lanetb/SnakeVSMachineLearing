@@ -3,8 +3,8 @@ import random
 class Food:
     block_size = None
     color = (255,0,0)
-    x = 140;
-    y = 140;
+    x = 300;
+    y = 300;
     bounds = None
 
     def __init__(self, block_size, bounds):

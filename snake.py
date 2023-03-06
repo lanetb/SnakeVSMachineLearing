@@ -14,15 +14,17 @@ class Snake:
     color = (0,255,0)
     bounds = None
 
-    def __init__(self, block_size, bounds):
+    def __init__(self, block_size, bounds, body, color, direction):
         self.block_size = block_size
         self.bounds = bounds
-        self.respawn()
+        self.body = body
+        self.color = color
+        self.respawn(body, direction)
 
-    def respawn(self):
+    def respawn(self, body, direction):
         self.length = 1
-        self.direction = Directions.RIGHT
-        self.body = [(20,20)]
+        self.direction = direction
+        self.body = body
 
     def draw(self, game, window):
         for segment in self.body:
@@ -82,10 +84,10 @@ class Snake:
           return True
         if head[1] >= self.bounds[1]:
           return True
-    
+
         if head[0] < 0:
             return True
         if head[1] < 0:
             return True
-    
+
         return False
