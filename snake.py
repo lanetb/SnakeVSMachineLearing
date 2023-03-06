@@ -22,7 +22,7 @@ class Snake:
     def respawn(self):
         self.length = 1
         self.direction = Directions.RIGHT
-        self.body = [(20,20), (40,20), (60,20)]
+        self.body = [(20,20)]
 
     def draw(self, game, window):
         for segment in self.body:
@@ -41,7 +41,7 @@ class Snake:
             self.body.append(next_head)
         elif self.direction == Directions.LEFT:
             next_head = (curr_head[0] - self.block_size, curr_head[1])
-        self.body.append(next_head)
+            self.body.append(next_head)
 
         if self.length < len(self.body):
             self.body.pop(0)
