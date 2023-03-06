@@ -59,3 +59,12 @@ while run:
         snake.respawn((20,300), Directions.RIGHT)
         snake2.respawn((1180,300), Directions.LEFT)
         food.respawn()
+
+    if snake2.check_bounds() == True or snake2.check_tail_collision() == True:
+        text = font.render('Game Over', True, (255,255,255))
+        window.blit(text, (150,150))
+        pg.display.update()
+        pg.time.delay(1000)
+        snake.respawn((20,300), Directions.RIGHT)
+        snake2.respawn((1180,300), Directions.LEFT)
+        food.respawn()
