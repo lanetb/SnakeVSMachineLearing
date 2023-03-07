@@ -22,7 +22,7 @@ while run:
 
     snake.move()
     snake2.move()
-    print(snake.direction)
+    print(snake2.body[-1])
     snake.check_for_food(food)
     snake2.check_for_food(food)
     window.fill((0,0,0))
