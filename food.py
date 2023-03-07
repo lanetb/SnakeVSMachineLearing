@@ -3,7 +3,7 @@ import random
 class Food:
     block_size = None
     color = (255,0,0)
-    x = 300;
+    x = 600;
     y = 300;
     bounds = None
 

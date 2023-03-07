@@ -9,7 +9,8 @@ pg.display.set_caption("Snake")
 block_size = 20
 snake = Snake(block_size, bounds, [(20,300)], (0,255,0), Directions.RIGHT)
 snake2 = Snake(block_size, bounds, [(1160,300)], (0,0,255), Directions.LEFT)
-food = Food(block_size,bounds)
+food = Food(block_size, bounds)
+
 font = pg.font.SysFont('comicsans',60, True)
 
 run = True
@@ -52,8 +53,8 @@ while run:
       snake2.steer(Directions.DOWN)
 
     if snake.check_bounds() == True or snake.check_tail_collision() == True:
-        text = font.render('Game Over', True, (255,255,255))
-        window.blit(text, (150,150))
+        text = font.render('Player 1 Wins', True, (255,255,255))
+        window.blit(text, (400,200))
         pg.display.update()
         pg.time.delay(1000)
         snake.respawn((20,300), Directions.RIGHT)
@@ -61,8 +62,8 @@ while run:
         food.respawn()
 
     if snake2.check_bounds() == True or snake2.check_tail_collision() == True:
-        text = font.render('Game Over', True, (255,255,255))
-        window.blit(text, (150,150))
+        text = font.render('Player 2 Wins', True, (255,255,255))
+        window.blit(text, (400, 200))
         pg.display.update()
         pg.time.delay(1000)
         snake.respawn((20,300), Directions.RIGHT)
