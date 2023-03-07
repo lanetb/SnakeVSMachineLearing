@@ -11,7 +11,7 @@ snake = Snake(block_size, bounds, [(20,300)], (0,255,0), Directions.RIGHT)
 snake2 = Snake(block_size, bounds, [(1160,300)], (0,0,255), Directions.LEFT)
 food = Food(block_size, bounds)
 
-font = pg.font.SysFont('comicsans',60, True)
+font = pg.font.SysFont('TimesNewRoman',60, True)
 
 run = True
 while run:
